@@ -1,6 +1,6 @@
 class Solution {
     public boolean check(int[] nums) {
-        int i;
+        int i,j;
         for(i=1;i<nums.length;i++)
         {
             if(nums[i]<nums[i-1])
@@ -8,13 +8,11 @@ class Solution {
         }
         if(i>=nums.length)
         return true;
-        for(int j=(i+1)%nums.length;j!=i;j=((j+1)%nums.length)){
-            
-            int k=(j==0)?nums.length-1:(j-1);
-            if(nums[j]<nums[k])
+        for(j=i;j<nums.length-1;j++){
+            if(nums[j]>nums[j+1])
             return false;
         }
-        return true;
+        return nums[j]<=nums[0];
     }
     
 }
