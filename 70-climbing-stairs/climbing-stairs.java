@@ -1,26 +1,20 @@
 class Solution {
     public int climbStairs(int n) {
-        // int dp[]=new int[n+1];
-        // Arrays.fill(dp,0);
-        if(n==1)
-        return 1;
-        if(n==2)
-        return 2;
-        int a=1;
-        int b=2;
-        // dp[3]=3;
-        int i,num=0;
-        for(i=3;i<=n;i++){
-            num=a+b;
-            a=b;
-            b=num;
-        }
-        return num;
+        int arr[] = new int[n+1];
+
+        return logic(n, arr);
+    }
+    public int logic(int n, int arr[]){ //2
+        if(n==1) return 1;
+        if(n==0) return 1;
+        if(arr[n]!=0)
+        return arr[n];
+        int L = logic(n-1,arr);//2-1 =1
+        int R = logic(n-2,arr);//2-2 =1
+        return arr[n]=L+R;
     }
 }
-// 4:
-// 1. 1 step + 1 step + 1 step +1 step
-// 2. 1 step + 2 steps +1step
-// 3. 2 steps + 1 step +1 step
-// 4. 1 + 1+ 2
-// 5. 2+2
+// 4
+// arr[0,0,2,0,0] = initial
+// arr[0,1,2,3,4] = index
+// arr[1,1,2,3,5] = final
