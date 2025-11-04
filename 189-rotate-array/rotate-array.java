@@ -1,21 +1,21 @@
 class Solution {
     public void rotate(int[] nums, int k) {
-        if(nums.length==1)
-        return;
         k=k%nums.length;
-        if(k==0)
-        return;
-        rotatei(nums,0,nums.length-k-1);
-        rotatei(nums,nums.length-k,nums.length-1);
-        rotatei(nums,0,nums.length-1);
+        rev(nums,0,nums.length-k-1);
+        rev(nums,nums.length-k,nums.length-1);
+        rev(nums,0,nums.length-1);
     }
-    void rotatei(int nums[],int si,int ei){
-        while(si<ei){
-            nums[si]=nums[si]^nums[ei];
-            nums[ei]=nums[si]^nums[ei];
-            nums[si]=nums[si]^nums[ei];
-            si++;
-            ei--;
+    public void rev(int []nums,int start, int end){
+        while(start<end){
+            nums[start]=nums[start]^nums[end];
+            nums[end]=nums[start]^nums[end];
+            nums[start]=nums[start]^nums[end];
+            start++;
+            end--;
         }
     }
+
 }
+// 4 3 2 1 5 6 7
+// 4 3 2 1 7 6 5
+// 5 6 7 1 2 3 4
