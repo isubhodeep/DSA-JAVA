@@ -3,7 +3,7 @@ class Solution {
         int i=0, j=0;
         while(i<nums.length && j<nums.length)
         {
-            if(nums[i]==0 && nums[j]!=0 && i<j)
+            if(nums[i]==0 && nums[j]!=0)
             {
                 nums[i]=nums[i]^nums[j];
                 nums[j]=nums[i]^nums[j];
