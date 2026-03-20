@@ -10,8 +10,7 @@ class Solution {
         {
             if(map.get(key)>1)
             {
-            dup = key;
-            break;
+            return key;
             }            
         }
         return dup;
